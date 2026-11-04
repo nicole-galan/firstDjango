@@ -1,12 +1,12 @@
-{%extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}CampusConnect - Home{% endblock %}
 
 {% block content %}
-<h2>Welcome, {{ user.first_name|default: user.username}}!</h2>
+<h2>Welcome, {{ user.first_name|default:user.username }}!</h2>
 <ul>
     <li>Role: {{ user.get_role_display }}</li>
-    <li>Course: {{ user.get_course_display }}</li>
+    <li>Course: {{ user.course|default:"Not set" }}</li>
     <li>Members: {{ member_count }}</li>
     <li>Last Login: {{ user.last_login|date:"M d, Y" }}</li>
 </ul>
